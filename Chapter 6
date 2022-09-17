@@ -6,3 +6,20 @@ count
 run
 display dialog
 changing a string to all-uppercase
+
+// user-defined commands, handler
+on square_root(the_number)
+return the_number^0.5
+end square_root
+
+//operators
+& 
+div
+mod
+starts with
+ends with
+contains
+does not cotains
+is in
+is not in
+as
