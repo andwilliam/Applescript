@@ -1,1 +1,39 @@
+//class
+text
+string
 
+//character
+get characters of "Hello"
+-> {"H","e","l","l","o"}
+
+//words
+get every word of "oh my world" 
+-> {"oh","my","world"}
+words of "3-day forecast, starting 5/12/2009"
+-> {"3","day","forecast","starting","5","12","2009"}
+
+//paragraphs
+every paragraph of my_string
+
+//igniring attributes (case, diacriticals, hyphens, punctuation, numeric strings, white space)
+
+ignoring case "A"="a"
+considering case "A"≠"a"
+ignoring diacriticals "Résumé" = "Resume"
+ignoring hyphens "1-39-8220312" = "1398220312"
+ignoring punctuation "That's all, right? Now!" = "Thats all right Now"
+ignoring white space "Spcace craft" = "Spacecraft"
+considering numeric strings "1.5.8" <"1.5.10"
+ignoring case, diacriticals, hyphens and white space "El Niño" = "El nino"
+
+//offset 占位
+offset of "s" in "Apple@Script" -> 7 占到第7个位置
+
+//as 强制转换
+
+//delimiters 分隔符. (text item delimiters)
+set text item delimiters to "-"
+get every text of "800-222-3331"
+->{"800","222","3331"}
+
+set text item delimiters to "/"
