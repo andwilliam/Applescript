@@ -77,3 +77,5 @@ set text item delimiters to "Disney Inc."
 set finished_form to temporary_list as text
 set text item delimiters to ""
 return finished_form
+
+//使用早期的系统，需要转换成Unicode text 才能使用替换
