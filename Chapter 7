@@ -38,7 +38,8 @@ get every text of "800-222-3331"
 
 set text item delimiters to "/"
 
-//把list元素提取出来去掉逗号
+//使用text item delimiters属性
+//把list元素提取出来去掉逗号 
 set shopping_list to {"milk", "butter", "cream", "Wensleydale cheese"}
 set text item delimiters to ","
 set shopping_text to shopping_list as text
@@ -57,3 +58,22 @@ set the_domain to text item -1 of the_email_address
 set the_path to "Users/hanaan/Work/todo.txt"
 set text item delimiters to "/"
 set the_parent_path to text 1 thru (text item -2) of the_path
+//
+set text item delimiters to "mississippi"
+set the_secret_message to "memississippiet mississippime mississippiamississippit fimississippive"
+set the_items to text items of the_secret_message
+set text item delimiters to "" // 去掉元素里的空格 {"me", "et ", "me ", "a", "t fi", "ve"}
+ set the_message to the_items as string
+//
+tell application "Finder"
+	set AppleScript's text item delimiters to ":"
+end tell
+
+//使用text item delimiters 替换文本
+set form_text to "let it be known that [company] is responsible for any damage, any employee [company]'s activity."
+set text item delimiters to "[company]"
+set temporary_list to text items of form_text
+set text item delimiters to "Disney Inc."
+set finished_form to temporary_list as text
+set text item delimiters to ""
+return finished_form
