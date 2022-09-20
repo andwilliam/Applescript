@@ -62,7 +62,7 @@ set the_parent_path to text 1 thru (text item -2) of the_path
 set text item delimiters to "mississippi"
 set the_secret_message to "memississippiet mississippime mississippiamississippit fimississippive"
 set the_items to text items of the_secret_message
-set text item delimiters to "" // 去掉元素里的空格 {"me", "et ", "me ", "a", "t fi", "ve"}
+set text item delimiters to "" // 去掉元素里的空格 {"me", "et ", "me ", "a", "t fi", "ve"} //怎么理解set text item delimiters to "" ，search的内容用占位去顶替而不是空格，所以用“”来把“t fi”填满
  set the_message to the_items as string
 //
 tell application "Finder"
@@ -83,3 +83,17 @@ return finished_form
 
 //handle 
 //find and replace
+
+set form_text to "let it be known that [company] is responsible for any damage, any employee [company]'s activity."
+set finished_form to find_and_replace(form_text, "[company]", "Disney Inc.")
+on find_and_replace(the_text, search_text, replacement_text)
+	set old_delims to text item delimiters //不知道这段代码作用
+	set text item delimiters to search_text
+	set temporary_list to text items of the_text
+	set text item delimiters to replacement_text
+	set finished_text to temporary_list as text
+	set text item delimiters to old_delims
+	return finished_text //不知道这段代码作用
+end find_and_replace
+
+
