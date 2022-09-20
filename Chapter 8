@@ -1,0 +1,18 @@
+//math
+math_facts({10,3,5,4,13})
+on math_facts(number_list)
+set high_number to item 1 of number_list
+set low_number to item 1 of number_list
+set number_total to 0
+repeat with i from 1 to count number_list
+    set the_number to item i of number_list
+    if the_number > high_number then set high_number to the_number
+    if the_number < low_number then set low_number to the_number
+        set number_total to number_total+ the_number
+end repeat
+set the_average to (number_total/(count number_list))
+return {average: the_average, high: high_number, low: low_number}
+end math_facts
+
+//kitchen timer
+
