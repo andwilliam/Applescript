@@ -79,3 +79,7 @@ set text item delimiters to ""
 return finished_form
 
 //使用早期的系统，需要转换成Unicode text 才能使用替换
+
+
+//handle 
+//find and replace
