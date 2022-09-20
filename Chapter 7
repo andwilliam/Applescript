@@ -97,3 +97,11 @@ on find_and_replace(the_text, search_text, replacement_text)
 end find_and_replace
 
 
+//训练
+//maill
+tell application "Mail"
+	set the_message to item 1 of (get selection)
+	set message_text to content of the_message
+	set message_subject_line to paragraph 2 of message_text
+	set message_location_line to paragraph 4 of message_text
+end tell
