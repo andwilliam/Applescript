@@ -16,3 +16,55 @@ end math_facts
 
 //kitchen timer
 
+/*
+dialog_reply: display dialog with properties in 120 minutes.
+total_time_in_minutes: 
+total_minutes_left: total minutes are left with properties that every second subtract 1 second.
+timer_doc: make a new document with text "00:00:00" and the size of windows 1 is {100,100,400,250}.
+
+hours_left: total minutes div 60.
+minutes_left: total minutes mod 60.
+seconds_left: from 59 to 0 with property that decrease by 1 per second.
+formatted_time: how to display on TextEdit
+
+pad_with_zero(the_number) handler 
+my keyword in front of it because these command inside of a current script. 
+*/
+
+set dialog_reply to display dialog "How many minutes?" default answer "120" 
+set total_time_in_minutes to text returned of dialog_reply as integer
+
+tell application "TextEdit"
+    activate
+    set timer_doc to make new document with properties {text: "00:00:00"}
+    set size of text of timer_doc to 60
+    set bound of windows 1 to {100,100,400,250}
+
+    repeat with total_minutes_left from (total_time_in_minutes -1) to 0 by -1
+        set hours_left to total_minutes_left div 60
+        set minutes_left to total_minutes_left mod 60
+        repeat with seconds_left from 59 to 0 by -1
+            set formatted_time to 
+                my pad_with_zero(hours_left) & ":" &
+                my pad_with_zero(minutes_left) & ":" &
+                my pad_with_zero(seconds_left) & ":" &
+            set paragraph 1 of text of timer_doc to formatted_time
+            delay 1
+        end repeat
+        
+    end repeat
+        
+end tell
+
+repeat 10 times
+    beep
+    delay 0.5
+end repeat
+
+on pad_with_zero(the_number)
+    if the_number < 10 then 
+        return "0" & the_number
+    else
+        return the_number as text
+    end if
+end pad_with_zero
