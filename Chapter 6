@@ -1,4 +1,4 @@
-//commands
+--commands
 get
 set
 copy
@@ -7,12 +7,12 @@ run
 display dialog
 changing a string to all-uppercase
 
-// user-defined commands, handler
+-- user-defined commands, handler
 on square_root(the_number)
 return the_number^0.5
 end square_root
 
-//operators
+--operators
 & 
 div
 mod

@@ -1,21 +1,21 @@
-//class
+--class
 text
 string
 
-//character
+--character
 get characters of "Hello"
 -> {"H","e","l","l","o"}
 
-//words
+--words
 get every word of "oh my world" 
 -> {"oh","my","world"}
 words of "3-day forecast, starting 5/12/2009"
 -> {"3","day","forecast","starting","5","12","2009"}
 
-//paragraphs
+--paragraphs
 every paragraph of my_string
 
-//igniring attributes (case, diacriticals, hyphens, punctuation, numeric strings, white space)
+--igniring attributes (case, diacriticals, hyphens, punctuation, numeric strings, white space)
 
 ignoring case "A"="a"
 considering case "A"≠"a"
@@ -26,50 +26,50 @@ ignoring white space "Spcace craft" = "Spacecraft"
 considering numeric strings "1.5.8" <"1.5.10"
 ignoring case, diacriticals, hyphens and white space "El Niño" = "El nino"
 
-//offset 占位
+--offset 占位
 offset of "s" in "Apple@Script" -> 7 占到第7个位置
 
-//as 强制转换
+--as 强制转换
 
-//delimiters 分隔符. (text item delimiters)
+--delimiters 分隔符. (text item delimiters)
 set text item delimiters to "-"
 get every text of "800-222-3331"
 ->{"800","222","3331"}
 
 set text item delimiters to "/"
 
-//使用text item delimiters属性
-//把list元素提取出来去掉逗号 
+--使用text item delimiters属性
+--把list元素提取出来去掉逗号 
 set shopping_list to {"milk", "butter", "cream", "Wensleydale cheese"}
 set text item delimiters to ","
 set shopping_text to shopping_list as text
 display dialog "Remember to buy " & shopping_text & "."
-//去掉电话号码符号
+--去掉电话号码符号
 set the_phone_number to "(800) 555-1212"
-set text item delimiters to {"(", ")", "-", " "} //去掉内部符号。   -> {"800", " ", "555", "1212"}
+set text item delimiters to {"(", ")", "-", " "} --去掉内部符号。   -> {"800", " ", "555", "1212"}
 set the_list to text items of the_phone_number
-set text item delimiters to "" //去掉空格
+set text item delimiters to "" --去掉空格
 set the_cleaned_phone_number to the_list as text
-//
+--
 set the_email_address to "info@store.apple.com"
 set text item delimiters to "@"
 set the_domain to text item -1 of the_email_address
-//
+--
 set the_path to "Users/hanaan/Work/todo.txt"
 set text item delimiters to "/"
 set the_parent_path to text 1 thru (text item -2) of the_path
-//
+--
 set text item delimiters to "mississippi"
 set the_secret_message to "memississippiet mississippime mississippiamississippit fimississippive"
 set the_items to text items of the_secret_message
-set text item delimiters to "" // 去掉元素里的空格 {"me", "et ", "me ", "a", "t fi", "ve"} //怎么理解set text item delimiters to "" ，search的内容用占位去顶替而不是空格，所以用“”来把“t fi”填满
+set text item delimiters to "" -- 去掉元素里的空格 {"me", "et ", "me ", "a", "t fi", "ve"} --怎么理解set text item delimiters to "" ，search的内容用占位去顶替而不是空格，所以用“”来把“t fi”填满
  set the_message to the_items as string
-//
+--
 tell application "Finder"
 	set AppleScript's text item delimiters to ":"
 end tell
 
-//使用text item delimiters 替换文本
+--使用text item delimiters 替换文本
 set form_text to "let it be known that [company] is responsible for any damage, any employee [company]'s activity."
 set text item delimiters to "[company]"
 set temporary_list to text items of form_text
@@ -78,27 +78,27 @@ set finished_form to temporary_list as text
 set text item delimiters to ""
 return finished_form
 
-//使用早期的系统，需要转换成Unicode text 才能使用替换
+--使用早期的系统，需要转换成Unicode text 才能使用替换
 
 
-//handle 
-//find and replace
+--handle 
+--find and replace
 
 set form_text to "let it be known that [company] is responsible for any damage, any employee [company]'s activity."
 set finished_form to find_and_replace(form_text, "[company]", "Disney Inc.")
 on find_and_replace(the_text, search_text, replacement_text)
-	set old_delims to text item delimiters //不知道这段代码作用
+	set old_delims to text item delimiters --不知道这段代码作用
 	set text item delimiters to search_text
 	set temporary_list to text items of the_text
 	set text item delimiters to replacement_text
 	set finished_text to temporary_list as text
 	set text item delimiters to old_delims
-	return finished_text //不知道这段代码作用
+	return finished_text --不知道这段代码作用
 end find_and_replace
 
 
-//训练
-//maill
+--训练
+--maill
 tell application "Mail"
 	set the_message to item 1 of (get selection)
 	set message_text to content of the_message

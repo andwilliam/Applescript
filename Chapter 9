@@ -6,3 +6,66 @@ weekday of (current date)
 hours of (current date)
 minutes of (current date)
 seconds of (current date)
+time of (current date)  --the number of seconds that have passed since midnight
+time string of (current date) 
+date string of (current date) 
+short date string of (current date) 
+
+--forced change day
+set the_date to date "Tuesday, September 27, 2022 at 10:19:27 PM"
+set day of the_date to 1 
+the_date
+
+--forced change month
+set the_date to date "Tuesday, September 27, 2022 at 10:19:27 PM"
+set month of the_date to 1 
+the_date
+
+--forced change year
+set the_date to date "Tuesday, September 27, 2022 at 10:19:27 PM"
+set year of the_date to 1 
+the_date
+
+
+--handle
+on make_date(the_year, the_month, the_day, the_hours, the_minutes, the_seconds)
+    set the_date to current date
+    set year of the_date to the_year
+    set month of the_date to the_month
+    set day of the_date to the_day
+    set hours of the_date to the_hours
+    set minutes of the_date to the_minutes
+    set seconds of the_date to the_seconds
+    return the_date
+end make_date
+
+make_date(1989, 9, 22, 19, 30, 0)
+
+-> date "Friday, September 22, 1989 at 7:30:00 PM"
+
+
+--Synchronization (local and server)
+tell application "Finder"
+    set documents_folder to folder "Documents" of home
+    set backup_folder to folder "Backup Files" of disk "Backup Server"
+    set file_name to "Accoints Database.fp7"
+
+    set original_file to file file_name of document_folder
+    set original_modification_date to modification date of original_file
+
+    set backup_file to file file_name of backup_folder
+    set backup_modification_date to modification date of backup_file
+
+    if original_modification_date > backup_modification_date then
+    duplicate original_file to backup_foler with replacing
+    end if
+
+end tell
+
+
+--Minutes =60
+--hours   =3600
+--days    =86400
+--weeks   =604800
+
+

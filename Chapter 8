@@ -1,4 +1,4 @@
-//math
+--math
 math_facts({10,3,5,4,13})
 on math_facts(number_list)
 set high_number to item 1 of number_list
@@ -14,7 +14,7 @@ set the_average to (number_total/(count number_list))
 return {average: the_average, high: high_number, low: low_number}
 end math_facts
 
-//kitchen timer
+--kitchen timer
 
 /*
 dialog_reply: display dialog with properties in 120 minutes.
