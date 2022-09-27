@@ -68,4 +68,12 @@ end tell
 --days    =86400
 --weeks   =604800
 
+--
+display dialog (current date) as string
+
+--GMT command (Greenwich mean time) returned in seconds
+
+
+
+
 
