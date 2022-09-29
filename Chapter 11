@@ -1,0 +1,26 @@
+--Variable
+local objectVar
+global objectVar
+property objectVar -- 值一直累加
+
+
+property number_of_runs : 0
+on run
+	set number_of_runs to number_of_runs + 1
+	display dialog "number_of_runs " & number_of_runs & " times."
+end run
+
+-- me
+
+on say_hello(user_name)
+	display dialog ("Hello " & user_name & "!")
+end say_hello
+
+tell application "Finder"
+	say_hello(name of home) of me
+end tell
+
+-- result
+
+2+4
+return result 
