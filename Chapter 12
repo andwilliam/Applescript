@@ -1,0 +1,68 @@
+-- make new floder on Desktop with the name of "untitled folder"
+tell application "Finder"
+	make new folder
+end tell
+
+-- with proterties
+tell application "Finder"
+	make new folder with properties {name:"NewSkyline"}
+end tell
+
+--
+get
+set
+copy
+count "abc"
+
+on run
+--statement
+end run
+
+--path to home folder as text -> "Macintosh HD:Users:will:"
+set my_script to load script alias ((path to home folder as text) & "my script.scpt")
+repeat 10 times
+	run my_script
+end repeat
+
+--open {...}
+tell application "Finder"
+	open {alias "Macintosh HD:Users:will:Downloads:Cybersecurity.for.Small.Networks.2022.10.epub"}
+end tell
+
+--
+tell application "Finder"
+	get the name of every folder of home
+end tell
+
+-->{"AppcodeProjects", "Applescript", "Applications", "CytoscapeConfiguration", "Desktop", "Documents", "Downloads", "Library", "Movies", "Music", "My project", "Pictures", "Public"}
+
+--
+move every file of desktop to folder "Documents" of home
+copy every file of desktop to folder "Documents" of home
+duplicate file of desktop to folder "Documents" of home with replacing
+open file "Macintosh HD:Users:will:Downloads:Cybersecurity.for.Small.Networks.2022.10.epub"
+open {alias "Macintosh HD:Users:will:Downloads:Cybersecurity.for.Small.Networks.2022.10.epub"}
+
+
+--
+set a to 1
+set b to 2
+set c to 3
+
+set {a,b,c} to {1,2,3}
+get {name, artist, album} of current track
+
+--
+ignoring application responses
+do ...
+
+--
+ignoring case
+considering case
+
+--time allows to perform a commands
+with timeout of ... seconds
+end timeout
+
+
+--
