@@ -1,0 +1,18 @@
+--user
+
+display dialog  "Hello World!"
+display dialog  "Hello World!" default answer "John Doe"
+display dialog  "Hello World!" default answer "John Doe" with hidden answer
+display dialog  "Hello World!" giving up after 5
+display dialog "Do somthing?" buttons {"YES", "NO", "MAYBE"}
+display dialog "Do somthing?" buttons {"YES", "NO", "MAYBE"} ¬
+	default button "YES"
+
+display dialog "Do somthing?" buttons {"YES", "NO", "MAYBE"} ¬
+	default button "YES" cancel button "NO"
+
+--
+display dialog "Delete older files?" with title "Now performing backup..."
+
+--
+
