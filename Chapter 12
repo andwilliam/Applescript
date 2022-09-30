@@ -65,4 +65,6 @@ with timeout of ... seconds
 end timeout
 
 
---
+--remote apple events
+
+eppc://192.168.2.7
