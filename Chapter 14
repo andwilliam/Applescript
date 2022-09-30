@@ -1,0 +1,32 @@
+--conditionals
+if ... then ...
+if ... then ... else ...
+if ... then ... else if ... else if ... else if ...
+end if
+
+--loops
+repeat 3 times
+end repeat
+
+repeat n times
+    ... to execute on each loop
+end repeat
+
+repeat with i from 3 to 100
+    ...
+    ... to execute on each loop
+end repeat
+
+-- add lost area code
+
+set default_area_code to "201"
+set phone_list to {"475-5556145", "5554328", "3568901", "312-2313156", "5839204"}
+
+repeat with i from 1 to count phone_list
+    if length of (item i of phone_list) is 7 then
+    set item i of phone_list to default_area_code & "-" & (item i of phone_list)
+    end if
+end repeat
+phone_list
+
+-- repeat until

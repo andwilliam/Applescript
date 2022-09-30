@@ -1,0 +1,22 @@
+--
+a reference to
+contents
+
+--
+3.5 as meters
+3.5 as meters as yards
+3.5 as meters as yards as number
+
+20 as degrees Celsius
+20 as degrees Fahrenheit
+20 as degrees Celsius as number
+15 as grams
+15 as kilograms
+--
+1705 as real
+1705.5 as integer  -->1706
+1705 as number 
+
+--HFS-Style : alias "Macintosh HD: "
+--POSIX-Style : file Macintosh HD/Application/...
+
