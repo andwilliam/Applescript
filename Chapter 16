@@ -16,3 +16,17 @@ display dialog "Delete older files?" with title "Now performing backup..."
 
 --
 
+set the_selection to choose from list {"a", "b", "c"}
+
+choose from list {"a","b","c"} with title "Energy Helper" with prompt "Choose your fuel"  --title prompt
+
+set state_list to {"NY","RI","GA","CA","WA"}
+set chosen_states to choose from list state_list with multiple selections allowed
+
+set state_list to {"NY","RI","GA","CA","WA"}
+set chosen_states to choose from list state_list with empty selection allowed
+
+--
+choose file of type {"public.text"}
+choose file of type {"com.microsoft.word.doc"}
+choose file with prompt "Choose an image:" of type {"JPEG", "TIFF", "GIFF", "8BPS"}
