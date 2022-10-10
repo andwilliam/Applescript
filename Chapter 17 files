@@ -1,0 +1,49 @@
+--HFS path string
+"Macintosh HD:Application:Address Book.app"
+
+--alias object
+alias "Macintosh HD: Applications:Address Book.app"
+
+--URL string
+"file://localhost/Applications/Address%20Book.app"
+
+--Finder application reference
+application file "Address Book.app" of folder "Applications" of startup disk of application "Finder"
+
+--POSIX path string
+POSIX file "/Applications/TextEdit.app"
+
+--
+set the_alias to alias "Macintosh HD:Users:will:Downloads:2.jpg"
+tell application "Preview" to open the_alias
+--
+set the_alias to alias "Macintosh HD:Users:will:Downloads:iOS.Animations.by.Tutorials.7th.2022.3.epub"
+tell application "Books" to open the_alias
+--
+set the_file to file "Mcintosh HD:Users:will:Downloads:1.jpg"
+set the_file to a reference to file "Mcintosh HD:Users:will:Downloads:1.jpg" --??
+
+set hfs_path to "Mcintosh HD:Users:will:Downloads:1.jpg"
+    tell application "Photos" to open (file hfs_path)
+
+--
+POSIX path of (file "Mcintosh HD:Users:will:Downloads:1.jpg")
+-->"Users/will/Downloads/1.jpg"
+
+--read and write
+read alias "Mcintosh HD:Users:will:Downloads:1.txt"
+--open for access
+set the_path to "Mcintosh HD:Users:will:Downloads:1.txt"
+    open for access (file the_path) with write permission
+   close access (file the_path)
+--
+set all_text to read alias "Mcintosh HD:Users:will:Downloads:1.txt" as Unicode text
+text 1 thru 10 of all_text
+
+--
+set the_file to alias (path to documents folder as text) & "work.txt"
+    open for access the_file
+    repeat
+        set the_text to read the_file for 4
+        display dialog the_text
+    end repeat
