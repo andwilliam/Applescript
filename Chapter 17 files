@@ -20,24 +20,24 @@ tell application "Preview" to open the_alias
 set the_alias to alias "Macintosh HD:Users:will:Downloads:iOS.Animations.by.Tutorials.7th.2022.3.epub"
 tell application "Books" to open the_alias
 --
-set the_file to file "Mcintosh HD:Users:will:Downloads:1.jpg"
-set the_file to a reference to file "Mcintosh HD:Users:will:Downloads:1.jpg" --??
+set the_file to file "Macintosh HD:Users:will:Downloads:1.jpg"
+set the_file to a reference to file "Macintosh HD:Users:will:Downloads:1.jpg" --??
 
-set hfs_path to "Mcintosh HD:Users:will:Downloads:1.jpg"
+set hfs_path to "Macintosh HD:Users:will:Downloads:1.jpg"
     tell application "Photos" to open (file hfs_path)
 
 --
-POSIX path of (file "Mcintosh HD:Users:will:Downloads:1.jpg")
+POSIX path of (file "Macintosh HD:Users:will:Downloads:1.jpg")
 -->"Users/will/Downloads/1.jpg"
 
 --read and write
 read alias "Mcintosh HD:Users:will:Downloads:1.txt"
 --open for access
-set the_path to "Mcintosh HD:Users:will:Downloads:1.txt"
+set the_path to "Macintosh HD:Users:will:Downloads:1.txt"
     open for access (file the_path) with write permission
    close access (file the_path)
 --
-set all_text to read alias "Mcintosh HD:Users:will:Downloads:1.txt" as Unicode text
+set all_text to read alias "Macintosh HD:Users:will:Downloads:1.txt" as Unicode text
 text 1 thru 10 of all_text
 
 --
@@ -47,3 +47,51 @@ set the_file to alias (path to documents folder as text) & "work.txt"
         set the_text to read the_file for 4
         display dialog the_text
     end repeat
+
+--eof
+--set eof the_file to 0 (clear any existing file data using this)
+set file_id to open for access file "Macintosh HD:Users:will:Downloads:1.txt" with write permission
+set eof file_id to 0
+write "This is the begining..." to file_id
+close access file_id
+-- at the end of the file
+set file_id to open for access file "Macintosh HD:Users:will:Downloads:1.txt" with write permission
+write "This is the begining..." to file_id starting at eof
+close access file_id
+
+-- File Writing Handler
+
+on write_text_to_file(the_file, the_text)
+    set file_ref to open for access the_file with permission
+    set eof file_ref to 0
+    write the_text to file_ref as Çclass utf8È
+    close access file_ref
+end write_text_to_file
+
+--  ÇÈ
+--OPTION + \
+--OPTION + SHIFT + \
+--
+
+on append_text_to_file(the_file, the_text)
+    set file_ref to open for access the_file with permission
+    write the_text to file_ref as Çclass utf8È starting at eof
+    close access file_ref
+end append_text_to_file
+
+-- add to log
+
+on add_to_log(the_message)
+	set {YYY, MM, DD} to {year, month, day} of (current date)
+	set MM to MM as integer
+	if MM < 10 then set MM to "0" & MM
+	if DD < 10 then set DD to "0" & DD
+	set log_file_name to (YYY as text) & "_" & MM & "_" & DD & ".log"  --log_file_name
+	set log_file_path to (path to desktop as text) & log_file_name  --og_file_path
+	set full_message to return & (current date) & return & the_message
+	set file_ID to open for access file log_file_path with write permission
+	write full_message to file_ID starting at eof
+	close access file_ID
+end add_to_log
+
+add_to_log("adding message successed!!")
