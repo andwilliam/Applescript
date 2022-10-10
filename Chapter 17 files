@@ -64,18 +64,18 @@ close access file_id
 on write_text_to_file(the_file, the_text)
     set file_ref to open for access the_file with permission
     set eof file_ref to 0
-    write the_text to file_ref as Çclass utf8È
+    write the_text to file_ref as ï¿½class utf8ï¿½
     close access file_ref
 end write_text_to_file
 
---  ÇÈ
+--  ï¿½ï¿½
 --OPTION + \
 --OPTION + SHIFT + \
 --
 
 on append_text_to_file(the_file, the_text)
     set file_ref to open for access the_file with permission
-    write the_text to file_ref as Çclass utf8È starting at eof
+    write the_text to file_ref as ï¿½class utf8ï¿½ starting at eof
     close access file_ref
 end append_text_to_file
 
@@ -94,4 +94,9 @@ on add_to_log(the_message)
 	close access file_ID
 end add_to_log
 
-add_to_log("adding message successed!!")
+add_to_log("adding message successed!!"
+
+--
+write the_text to file_ID as Unicode text
+write the_text to file_ID as string
+
