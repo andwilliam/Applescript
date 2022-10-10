@@ -1,0 +1,68 @@
+--
+bake_cake("Chocolate cake")
+wash_dishes()
+buy_food("Chips")
+buy_food("Soda")
+welcome_guest()
+
+to bake_cake("Chocolate cake")
+
+to wash_dishes()
+...
+
+-- my key word
+ my bake_cake()
+
+--
+to make_coffee(cup_size, include_whitener, number_of_sweeteners)
+    put a cup whose size is cup_size on counter
+    fill with coffee
+    if include_whitener then add whitener
+        repeat number_of_sweeteners times
+            add sweeteners
+        end repeat
+        stir
+    return cup of coffee
+end make_coffee
+
+-- telephone number
+on format_phone(the_phone_number)
+	return "(" & (text 1 thru 3 of the_phone_number) & ")" & (text 4 thru 6 of the_phone_number) & "-" & (text 7 thru 10 of the_phone_number)
+end format_phone
+
+display dialog format_phone("13980097651")
+
+--split_name
+on split_name(the_name)
+    set first_name to first word of the_name
+    set last_name to last word of the_name
+    return {forename:first_name, surname:last_name}
+end split_name
+set name_record to split_name("WEI GONG")
+
+--
+on create_folder()
+    tell application "Finder"
+        make new folder
+    end tell
+end create_folder
+-- add properties
+on create_folder(folder_location, folder_name)
+    tell application "Finder"
+        make new folder at folder_location with properties {name:folder_name}
+    end tell
+end create_folder
+create_folder(path to downloads folder, "W.GONG")
+
+--Labeled  given + name : variables
+to reverse_string given a_string:string_to_reverse
+    set text item delimiters to ""
+    return (reverse of (characters of string_to_reverse)) as text
+end reverse_string
+reverse_string given a_string : "wei gong"
+
+--
+to calculate_retangle_area given width: w, height: h
+ return w*h
+end get_the_area
+calculate_retangle_area given width:12, height:5
