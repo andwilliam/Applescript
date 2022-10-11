@@ -1,0 +1,32 @@
+-- .scpt file
+
+--
+script A
+	property x : "hi"
+	display dialog "A says " & x
+end script
+
+script B
+	display dialog "B says " & x of A
+end script
+
+run B
+
+-- log
+on make_log_base()
+    script LogBase
+    property _linefeed: character id 10
+
+    on _write(the_text)
+    end _write
+
+    on log_important(the_text)
+    end log_important
+
+    on log_message(the_text)
+    end log_message
+
+    on log_error(the_text)
+    end log_error
+    end script
+end make_log_base
