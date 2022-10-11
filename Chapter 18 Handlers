@@ -66,3 +66,37 @@ to calculate_retangle_area given width: w, height: h
  return w*h
 end get_the_area
 calculate_retangle_area given width:12, height:5
+
+--Recursion
+on do_something()
+    display dialog "Doing something now..."
+    do_something
+end do_something
+
+--show folder hierarchy using recursion in chapter 20
+show_folder_hierarchy(choose folder, "")
+on show_folder_hierarchy(the_folder, the_indent)
+    tell application "Finder"
+        set the_result to the_indent & name of the_folder & return
+    end tell
+
+    tell application "Finder"
+        repeat with sub_folder_ref in (get every folder of the_folder)
+            set the_result to the_result & my show_folder_hierarchy(contents of sub_folder_ref, the_indent & tab)
+        end repeat
+    end tell
+return the_result
+end show_folder_hierarchy
+
+--run
+
+--Standard Event Handlers
+--run Event Handler
+--open Event Handler
+--reopen Event Handler
+--quit Event Handler
+--idle Event Handler
+
+-- key & value
+
+{{the_key:"Some key", the_value:"some value"}, the_key:"another key", the_value:"another value"}...}
