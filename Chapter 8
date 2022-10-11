@@ -16,7 +16,7 @@ end math_facts
 
 --kitchen timer
 
-/*
+(*
 dialog_reply: display dialog with properties in 120 minutes.
 total_time_in_minutes: 
 total_minutes_left: total minutes are left with properties that every second subtract 1 second.
@@ -29,7 +29,7 @@ formatted_time: how to display on TextEdit
 
 pad_with_zero(the_number) handler 
 my keyword in front of it because these command inside of a current script. 
-*/
+*)
 
 set dialog_reply to display dialog "How many minutes?" default answer "120" 
 set total_time_in_minutes to text returned of dialog_reply as integer
