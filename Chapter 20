@@ -1,0 +1,47 @@
+--container
+--file class
+--packages(boundles) .app
+
+tell application "Finder"
+	every package of folder "Chrome Apps" of folder "Applications" of folder "will" of folder "Users" of startup disk
+end tell
+
+--System Events (domin objects) (hiden files)
+
+-- whose type identifier
+set file_name to name of every file of (disk item the_path) whose type identifier is "1.html"
+
+-- home folder
+
+tell application "System Events"
+	home folder
+end tell
+--> folder "Macintosh HD:Users:will:" of application "System Events"
+
+-- showing invisible items whose name start with "."
+tell application "System Events"
+	get the name of every folder of home folder whose visible is true
+end tell
+
+-- visible
+tell application "System Events"
+	get the name of every folder of home folder whose visible is true
+end tell
+
+-- System Events Disk
+tell application "System Events"
+	get the name of every disk
+end tell
+-->{"Macintosh HD", "VM", "Preboot", "Update", "xarts", "iSCPreboot", "Hardware", "home"}
+
+-- System Events user
+tell application "System Events"
+	get the name of every user
+end tell
+
+
+-- domain
+tell application "System Events"
+	name of every domain
+end tell
+-->{"System", "Local", "Network", "User", "Classic"}
