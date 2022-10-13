@@ -52,5 +52,5 @@ get the name of every item of home whose name starts with "m"
 get every file of the_folder whose (modification date < ((current date)-(10 * weeks)) and label index = 0) 
 --
 set the_folder to **
-get every file of the_folder whose 
+get every file of the_folder whose date of media item from October 2, 2022 to October 5, 2022
 --October 2, 2022, 5:14:11 PM to October 5, 2022, 23:14:11 PM 
